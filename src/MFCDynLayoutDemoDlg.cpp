@@ -73,6 +73,7 @@ BEGIN_MESSAGE_MAP(CMFCDynLayoutDemoDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_CHECK_ENABLE_DYNLAYOUT, &CMFCDynLayoutDemoDlg::OnBnClickedCheckEnableDynlayout)
 	ON_WM_DESTROY()
 	ON_BN_CLICKED(IDC_BUTTON2, &CMFCDynLayoutDemoDlg::OnClickedButton2)
+	ON_BN_CLICKED(IDOK2, &CMFCDynLayoutDemoDlg::OnBnClickedOk2)
 END_MESSAGE_MAP()
 
 
@@ -163,6 +164,18 @@ void CMFCDynLayoutDemoDlg::OnPaint()
 HCURSOR CMFCDynLayoutDemoDlg::OnQueryDragIcon()
 {
 	return static_cast<HCURSOR>(m_hIcon);
+}
+
+void CMFCDynLayoutDemoDlg::OnBnClickedOk2()
+{
+	CString selectedPath;
+	CFolderPickerDialog dlg(NULL, OFN_EXPLORER, NULL, 0);
+
+	if (dlg.DoModal() == IDOK) {
+		selectedPath = dlg.GetPathName();
+		// Use selectedPath, which contains the path of the selected directory
+	}
+	AfxMessageBox(selectedPath, MB_OK | MB_ICONINFORMATION);
 }
 
 void CMFCDynLayoutDemoDlg::OnBnClickedCheckEnableDynlayout()
