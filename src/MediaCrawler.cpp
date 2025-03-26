@@ -16,7 +16,7 @@ namespace internal
 {
     // Function to parse comma-separated extensions into a set
     std::unordered_set<std::string>
-        parseExtensions(const std::string& extStr)
+    parseExtensions(const std::string& extStr)
     {
         std::unordered_set<std::string> extensions;
         std::istringstream stream(extStr);
@@ -31,7 +31,7 @@ namespace internal
 
     // Function to check if a string is valid UTF-8 (for Linux/macOS)
     bool
-        isValidUTF8(const std::string& str)
+    isValidUTF8(const std::string& str)
     {
         int numBytes = 0;
         for (unsigned char c : str) {
@@ -50,7 +50,7 @@ namespace internal
     }
 
     // Function to recursively scan directories
-    void
+    std::wstring
     scanDirectory(const fs::path& directory, const std::unordered_set<std::string>& validExtensions)
     {
         try {
@@ -60,7 +60,8 @@ namespace internal
                     if (validExtensions.find(ext) != validExtensions.end()) {
 #ifdef _WIN32
                         // Use wstring for Unicode filenames on Windows
-                        std::wcout << entry.path().wstring() << std::endl;
+                        //std::wcout << entry.path().wstring() << std::endl;
+						return entry.path().wstring();
 #else
                         std::string filename = entry.path().string();
                         if (isValidUTF8(filename)) {

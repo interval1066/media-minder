@@ -53,6 +53,8 @@ CMFCDynLayoutDemoDlg::CMFCDynLayoutDemoDlg(CWnd* pParent /*=NULL*/)
 void CMFCDynLayoutDemoDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
+	DDX_Control(pDX, IDC_EDIT1, m_DirPath);
+	DDX_Control(pDX, IDC_LIST1, m_DirList);
 }
 
 void CMFCDynLayoutDemoDlg::EnableDynamicLayoutHelper(bool const enable)
@@ -173,9 +175,8 @@ void CMFCDynLayoutDemoDlg::OnBnClickedOk2()
 
 	if (dlg.DoModal() == IDOK) {
 		selectedPath = dlg.GetPathName();
-		// Use selectedPath, which contains the path of the selected directory
+		m_DirPath.SetWindowText(selectedPath);
 	}
-	AfxMessageBox(selectedPath, MB_OK | MB_ICONINFORMATION);
 }
 
 void CMFCDynLayoutDemoDlg::OnBnClickedCheckEnableDynlayout()

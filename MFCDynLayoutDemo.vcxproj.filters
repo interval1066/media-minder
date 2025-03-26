@@ -21,9 +21,6 @@
     <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MediaCrawler.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\MFCDynLayoutDemo.h">
       <Filter>Header Files</Filter>
     </ClInclude>

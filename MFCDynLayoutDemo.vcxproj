@@ -195,7 +195,6 @@
     <ClInclude Include="include\MFCDynLayoutDemoDlg.h" />
     <ClInclude Include="include\resource.h" />
     <ClInclude Include="include\targetver.h" />
-    <ClInclude Include="MediaCrawler.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>

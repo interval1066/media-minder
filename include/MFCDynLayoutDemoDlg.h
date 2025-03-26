@@ -16,6 +16,10 @@ public:
 	afx_msg void OnDestroy();
 	afx_msg void OnClickedButton2();
 
+	afx_msg void OnBnClickedOk2();
+	CEdit m_DirPath;
+	CListBox m_DirList;
+
 // Dialog Data
 #ifdef AFX_DESIGN_TIME
 	enum { IDD = IDD_MFCDYNLAYOUTDEMO_DIALOG };
@@ -32,6 +36,4 @@ protected:
 
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
-public:
-	afx_msg void OnBnClickedOk2();
 };
